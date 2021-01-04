@@ -6,7 +6,7 @@
 
 # Getting and setting working directory
 getwd()
-# setwd("/Users/mjosephmeyer/eclipse-Rstuff/Spring2021-TextFiles")
+setwd("/Users/mjosephmeyer/eclipse-Rstuff/Spring2021-TextFiles")
 
 #############################
 
@@ -50,7 +50,7 @@ w*y == prod(w, y)
 ############################################################################
 
 # Good job! Now, let's look at some data. Run the two lines below. Make sure KAPData is in your working directory!
-KAPData <- read.csv("KAPJTerm.csv",check.names=FALSE,na.strings = "",
+KAPData <- read.csv("../data/KAPJTerm.csv",check.names=FALSE,na.strings = "",
                     stringsAsFactors = TRUE)
 KAPData <- KAPData[, c("id", "knowSum", "anxSum", "sleep")]
 
