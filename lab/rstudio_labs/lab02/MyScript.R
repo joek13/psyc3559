@@ -17,4 +17,7 @@ politicalSplit = list(
 boxplot(KAPData[,c("percv_sev", "percv_risk", "statgov_resp")])
 median(KAPData$statgov_resp, na.rm = TRUE)
 
-dissatisfied <- KAPData[KAPData$statgov_resp <= 5]
+KAPData$satisfied = ifelse(KAPData$statgov_resp <= 5, "Dissatisfied", "Satisfied")
+KAPData$satisfied = factor(KAPData$satisfied)
+
+hist(KAPData[KAPData$satisfied == "Dissatisfied",]$anxSum)
