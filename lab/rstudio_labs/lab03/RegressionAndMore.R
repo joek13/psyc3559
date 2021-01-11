@@ -273,9 +273,10 @@ summary(RiskAnxThreat123)
 # between percv_sev and {percv_risk, anxSum, and threatSum}?
 
 # effect size f2
-f2 <- ...
+r2 = 0.1636
+f2 <- r2/(1-r2)
 
-wp.regression(n=5485, p1=3, f2=...)
+wp.regression(n=5485, p1=3, f2=f2, alpha=0.05) # power = 1
 
 # consider the effect of threatSum only! what is the statistical power to find 
 # significant relationship between percv_sev and threatSum in Model RiskAnxThreat123?
@@ -285,15 +286,31 @@ RiskAnx12<-lm(percv_sev ~ percv_risk + anxSum, data=KAPData)
 summary(RiskAnx12)
 
 # Now, What is the effect size f2?
-f2 <- ...
+r2_full = r2
+r2_reduced = 0.1615
+
+f2 <- (r2_full - r2_reduced) / (1 - r2_full)
 
 # power=?
-wp.regression(n=5485, p1=3, p2=2, f2=..., alpha=0.05)
+wp.regression(n=5485, p1=3, p2=2, f2=f2, alpha=0.05)
 
 
 # In order to get a power of 0.8, what is the required sample size?
-wp.regression(n=NULL, p1=3, p2=2, f2=..., alpha=0.05, power=0.8)
+wp.regression(n=NULL, p1=3, p2=2, f2=f2, alpha=0.05, power=0.8)
 
 
 ##################################################################################################
+
+
+
+RiskAnxEdu123 <-lm(percv_sev ~ percv_risk + anxSum + eduNum,  data = KAPData)
+summary(RiskAnxEdu123) 
+
+
+
+
+
+
+
+
 ##################################################################################################
